@@ -1,10 +1,32 @@
+import './cobrar.css';
+
+import React, { useState } from 'react';
+
 function Cobrar() {
-    return (
-        <div>
-        <h1>Bienvenido a la página de Cobrar</h1>
-        <p>Este es un sitio web de ejemplo creado Cobrarn React</p>
-        </div>
-    );
+  const [showForm, setShowForm] = useState(false);
+
+  const handleClick = () => {
+    setShowForm(true);
+  };
+
+  return (
+    <div className='back'>
+      <button onClick={handleClick}>Mostrar Formulario</button>
+      {showForm ? (
+        <form>
+            <div>
+
+            </div>
+            <div>
+              <p>lorem</p>
+              <p>lorem</p>
+              <p>lorem</p>
+              <input type='submit'value='Pagar'/>
+            </div>
+        </form>
+      ) : null}
+    </div>
+  );
 }
 
 export default Cobrar;
