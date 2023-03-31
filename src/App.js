@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Home from "./pages/Home/Home";
-import Faucet from "./pages/Faucet/Faucet.js";
-import Sorteo from "./pages/Sorteo/Sorteo.js";
+import Home from "./pages/Home/home";
+import Registro from "./pages/Registro/registro";
+import Alquilar from "./pages/Alquilar/alquilar";
+import Cobrar from "./pages/Cobrar/cobrar";
+import Quejas from "./pages/Quejas/quejas";
 import "./App.css";
 
 function App() {
@@ -13,8 +15,10 @@ function App() {
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/Faucet" element={<Faucet />} />
-            <Route path="/Sorteo" element={<Sorteo />} />
+            <Route path="/Registro" element={<Registro />} />
+            <Route path="/Alquilar" element={<Alquilar />} />
+            <Route path="/Cobrar" element={<Cobrar />} />
+            <Route path="/Quejas" element={<Quejas />} />
           </Routes>
         </div>
       </Router>

@@ -1,10 +1,10 @@
-function Sorteo() {
+function Registro() {
     return (
         <div>
-        <h1>Sorteo</h1>
+        <h1>Bienvenido a la página de Registro</h1>
         <p>Este es un sitio web de ejemplo creado con React</p>
         </div>
     );
 }
 
-export default Sorteo;
+export default Registro;

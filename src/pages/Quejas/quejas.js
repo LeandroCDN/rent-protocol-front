@@ -1,10 +1,10 @@
-function Home() {
+function Quejas() {
     return (
         <div>
-        <h1>Bienvenido a la página de Home</h1>
+        <h1>Bienvenido a la página de Quejas</h1>
         <p>Este es un sitio web de ejemplo creado con React</p>
         </div>
     );
 }
 
-export default Home;
+export default Quejas;
