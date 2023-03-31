@@ -1,0 +1,10 @@
+.faucet{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 13px;
+}

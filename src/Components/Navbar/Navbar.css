@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 50px;
+    border-radius: 13px;
+    background-image: linear-gradient(to top, #f3d5b56d, #f3d5b5eb);
+    color: #ffffff;
+    padding: 0 20px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.navbar-links{
+ 
+}
+
+.navbar-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  /* background-color: #ffffffcd; */
+  border-radius: 40%;
+  color: #000000;
+  transition: color 0.7s ease-in-out;
+}
+
+
+/*
+--color-primary: #a16ae8;  Morado 
+--color-secondary: #f0a4bd;  Rosa 
+--color-tertiary: #6bb4c6;  Celeste 
+--color-quaternary: #f7d9c4; Beige
+*/
