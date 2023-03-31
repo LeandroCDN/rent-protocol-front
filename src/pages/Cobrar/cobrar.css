@@ -1,6 +1,15 @@
 .back {
   background-color: #191A2C;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 32px;
   }
+
+.divvv {
+  height: 300px;
+  width: 300px;
+}
 
 .boton {
   background-color: #D7EF41;
@@ -10,9 +19,24 @@
   top: 30px;
   border-radius: 40px;
   font-weight: 600;
+
+}
+
+.entrada {
+  height: 20px;
+  width: 100px;
 }
 
 .formu {
   background-color: #283650;
   color: #fff;
+}
+
+.divv {
+  display: flex;
+  flex-direction: column;
+}
+
+.marge {
+  margin: 40px;
 }

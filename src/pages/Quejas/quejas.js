@@ -1,8 +1,13 @@
+import './quejas.css';
+import titu from './Rectangle108.png';
+import lalo from './Rectangle107.png';
+import lala from './Segui.png';
+
 function Quejas() {
     return (
-        <div>
-        <h1>Bienvenido a la página de Quejas</h1>
-        <p>Este es un sitio web de ejemplo creado con React</p>
+        <div className='container'>
+        <div className='img'><img src={lala} alt='lalala' /></div>
+        <img src={titu} alt='casa'/>
         </div>
     );
 }
