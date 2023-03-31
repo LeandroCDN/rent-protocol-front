@@ -3,5 +3,16 @@
   }
 
 .boton {
-  background-color: #d083dd;
+  background-color: #D7EF41;
+  height: 40px;
+  width: 120px;
+  left: 1140px;
+  top: 30px;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.formu {
+  background-color: #283650;
+  color: #fff;
 }
