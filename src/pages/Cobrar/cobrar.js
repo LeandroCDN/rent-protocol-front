@@ -8,14 +8,13 @@ const rentAddress = "0xD6D59e9f8BEe9919dba3261aE9FaEDFDD6A6764a";
 
 
 function Cobrar() {
-  const [showForm, setShowForm] = useState(false);
   const [id, setId] = useState('');
   const [rentContract, setRentContract] = useState('');
   const [isConnected, setIsConnected] = useState(false);
+  const [withdrawAmount, setWithdrawAmount] = useState('');
+  const [property, setProperty] = useState('');
   
-  const handleClick = () => {
-    setShowForm(true);
-  };
+
 
   const createSigner = async () => {
     if (window.ethereum ) {
@@ -53,29 +52,54 @@ function Cobrar() {
   const getDataBlockchain = async (event)=> {
     initContract();
     event.preventDefault();
-    const seeAmount = await rentContract.calculatePayment(0);
+    const seeAmount = await rentContract.calculatePayment(id);
     console.log(seeAmount);
+    setWithdrawAmount(seeAmount.toString());
+    const dataProperty = await rentContract.registerPropertyData(id);
+    console.log(dataProperty);
+    const dataPropertyObject = {
+      renter: (dataProperty.renter).toString(),
+      status: dataProperty.state
+      // price: (dataProperty.pricePerSecond).toString()
+    }
+    setProperty(dataPropertyObject);
+  }
+
+  const claimPayment = async (event)=> {
+    initContract();
+    event.preventDefault();
+    const claim = await rentContract.claimPayment(id, {gasLimit: 300000});
+    console.log(claim);
   }
 
   return (
     <div className='back'>
-      <div className='divv'>
-        <img className='divvv marge' src={ ima }  alt='casita'/>
-      <input type='input' className='entrada' value={id} onChange={(event) => setId(event.target.value)} placeholder='ID Propiedad' />
-      <button className='boton'  onClick={getDataBlockchain} disabled= {!id} >Mostrar Formulario</button>
+      <div className='divddiv'>
+        <input type='input' className='entrada' value={id} onChange={(event) => setId(event.target.value)} placeholder='ID Propiedad' />
+        <button className='boton' onClick={getDataBlockchain} disabled= {!id} >Buscar</button>
+        <img className='div-imagen marge' src={ ima }  alt='casita'/>   
       </div>
-      {showForm ? (
+      {withdrawAmount ? (
         <form className='formu'>
             <div> 
-              <p>Estado de propiedad: xxx</p>
-              <p>Fecha de alquiler: xx/xx/xx</p>
-              <p>Monto total: $xxx</p>
-              <input className='marge' type='submit'value='Retirar importe'/>
+              <p>Monto a retirar: {withdrawAmount}</p>
+              <p>Renter: {property.renter}</p>
+              <p>Estado: {property.status}</p>
+              <p>Precio por mes: </p>
+              <button className='boton' onClick={claimPayment} >Retirar importe</button>
             </div>
         </form>
-      ) : null}
+      ) : (
+        <div>
+
+        </div>
+      )}
     </div>
   );
 }
 
 export default Cobrar;
+
+// Tarea button: 
+// 1: crear una función para llamar a la función de blockchain llamada claimPayment(id)
+// 2: al tocar al botón llamar a la función del paso 1
