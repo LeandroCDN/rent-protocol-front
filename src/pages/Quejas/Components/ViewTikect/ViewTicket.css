@@ -1,0 +1,44 @@
+.ViewTicket{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  height: 50vh;
+  margin: 2px;
+  padding: 2px;
+}
+
+.div-ViewTicket{
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-ViewTicket{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-label-ViewTicket {
+  margin-bottom: 5px;
+}
+
+.input-field-ViewTicket {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 90%;
+}
+
+.submit-button-ViewTicket {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgb(43, 212, 6);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
