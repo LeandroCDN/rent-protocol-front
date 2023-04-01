@@ -5,6 +5,7 @@ import Registro from "./pages/Registro/registro";
 import Alquilar from "./pages/Alquilar/alquilar";
 import Cobrar from "./pages/Cobrar/cobrar";
 import Quejas from "./pages/Quejas/quejas";
+import Footer from "./Components/Footer";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/Cobrar" element={<Cobrar />} />
             <Route path="/Quejas" element={<Quejas />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </div>
