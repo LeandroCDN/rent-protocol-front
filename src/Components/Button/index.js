@@ -23,7 +23,19 @@ function Button() {
   };
 
   useEffect(() => {
-    connectWallet()
+    connectWallet();
+    if (window.ethereum ) {
+      //registra constantemente cambios en el objeto 'cuenta'
+      window.ethereum.on('accountsChanged', (accounts) => {
+        if (accounts.length > 0) {
+          console.log('Cambio de cuenta detectado:', accounts[0]);
+          setIsConnected(true);
+        } else {
+          console.log('MetaMask desconectado');
+          setIsConnected(false);
+        }
+      });
+    }
   }, [])
 
   return (
