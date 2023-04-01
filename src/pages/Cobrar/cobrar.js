@@ -54,7 +54,8 @@ function Cobrar() {
     event.preventDefault();
     const seeAmount = await rentContract.calculatePayment(id);
     console.log(seeAmount);
-    setWithdrawAmount(seeAmount.toString());
+    setWithdrawAmount(
+      ethers.utils.formatEther(seeAmount).toString());
     const dataProperty = await rentContract.registerPropertyData(id);
     console.log(dataProperty);
     const dataPropertyObject = {

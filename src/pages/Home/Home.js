@@ -5,8 +5,8 @@ import './Home.css';
 function Home() {
     return (
         <div className='back'>
-        <img src={titulo} alt='titulo'/>
-        <img src={casa} alt='casa'/>
+        <img className='imagen-titulo' src={titulo} alt='titulo'/>
+        <img className='imagen-casa' src={casa} alt='casa'/>
         </div>
     );
 }
