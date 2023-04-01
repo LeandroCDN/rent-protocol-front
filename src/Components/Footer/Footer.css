@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.social-links a {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  color: #1DA1F2;
+}
+
+.useful-links a {
+  color: #fff;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+.useful-links a:hover {
+  color: #1DA1F2;
+}

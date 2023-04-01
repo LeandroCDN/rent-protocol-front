@@ -2,3 +2,14 @@
     background-color: #D083DD;
     height: 200px;
 }
+.quejas {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quejasforms{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,13 +1,17 @@
-import './quejas.css';
-import titu from './Rectangle108.png';
-import lalo from './Rectangle107.png';
-import lala from './Segui.png';
+import ResolveTicket from "./Components/ResolveTicket";
+import TicketForm from "./Components/TicketForm";
+import ViewTicket from "./Components/ViewTikect";
+import "./quejas.css";
 
 function Quejas() {
     return (
-        <div className='container'>
-        <div className='img'><img src={lala} alt='lalala' /></div>
-        <img src={titu} alt='casa'/>
+        <div className="quejas">
+            <h1>Bienvenido a la página de Quejas</h1>
+            <div className="quejasforms">
+                <TicketForm />
+                <ViewTicket />
+                <ResolveTicket />
+            </div>
         </div>
     );
 }
