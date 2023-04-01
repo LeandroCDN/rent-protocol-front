@@ -1,0 +1,42 @@
+.ResolveTicket{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  height: 50vh;
+  margin: 2px;
+  padding: 2px;
+}
+
+
+.div-ResolveTicket{
+  width: 20vw;
+}
+
+.form-ResolveTicket{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-label-ResolveTicket {
+  margin-bottom: 5px;
+}
+
+.input-field-ResolveTicket {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 90%;
+}
+
+.submit-button-ResolveTicket {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

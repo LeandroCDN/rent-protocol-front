@@ -1,8 +1,17 @@
+import ResolveTicket from "./Components/ResolveTicket";
+import TicketForm from "./Components/TicketForm";
+import ViewTicket from "./Components/ViewTikect";
+import "./quejas.css";
+
 function Quejas() {
     return (
-        <div>
-        <h1>Bienvenido a la página de Quejas</h1>
-        <p>Este es un sitio web de ejemplo creado con React hola</p>
+        <div className="quejas">
+            <h1>Bienvenido a la página de Quejas</h1>
+            <div className="quejasforms">
+                <TicketForm />
+                <ViewTicket />
+                <ResolveTicket />
+            </div>
         </div>
     );
 }
