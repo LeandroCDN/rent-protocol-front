@@ -82,7 +82,7 @@ function Cobrar() {
       </div>
       {withdrawAmount ? (
         <form className='formu'>
-            <div> 
+            <div className='formu-div'> 
               <p>Monto a retirar: {withdrawAmount}</p>
               <p>Renter: {property.renter}</p>
               <p>Estado: {property.status}</p>
