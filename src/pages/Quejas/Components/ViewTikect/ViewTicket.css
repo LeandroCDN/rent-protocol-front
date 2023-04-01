@@ -9,9 +9,10 @@
 }
 
 .div-ViewTicket{
-  width: 20vw;
+  min-width: 20vw;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 

@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
+import rentAbi from "../../../../Contracts/rentABI.json";
 import "./TicketForm.css";
 
+const rentAddress = "0xD6D59e9f8BEe9919dba3261aE9FaEDFDD6A6764a";
+
 function TicketForm() {
+  let [rentContract, setRentContract] = useState('');
   const [id, setId] = useState('');
   const [uri, setUri] = useState('');
   const[isConnected, setIsConnected] = useState(false);
   
+  const createSigner = async () => {
+    if (window.ethereum ) {
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+      if (window.ethereum.selectedAddress) {
+        setIsConnected(true);
+        initContract();
+      }
+    }
+  };
+
   //utilizamos esto para verificar la coneccion con metamastk
   useEffect(() => {
     createSigner();
@@ -21,18 +35,16 @@ function TicketForm() {
         }
       });
     }
+    // eslint-disable-next-line
   }, []);
 
-  const createSigner = async () => {
-    if (window.ethereum ) {
-      await window.ethereum.request({ method: 'eth_requestAccounts' });
-      if (window.ethereum.selectedAddress) {
-        setIsConnected(true);
-        // const provider = new ethers.providers.Web3Provider(window.ethereum);
-        // const signer = provider.getSigner();
-      }
-    }
-  };
+
+  const initContract = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const rentContract = new ethers.Contract(rentAddress, rentAbi, signer);
+    setRentContract(rentContract);
+  }
 
   const handleIdChange = (event) => {
     setId(event.target.value);
@@ -42,9 +54,12 @@ function TicketForm() {
     setUri(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    //enviarTicket(id, uri);
+    initContract();
+    
+    const result = await rentContract.createTicket(id,uri);
+    console.log(result);
   };
 
   return (

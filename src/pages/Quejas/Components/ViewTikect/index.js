@@ -3,13 +3,13 @@ import { ethers } from 'ethers';
 import rentAbi from "../../../../Contracts/rentABI.json";
 import "./ViewTicket.css";
 
-
-const rentAddress = "0x88B620F77d640bC95b881e64f65444BBEd58E4e9";
+const rentAddress = "0xD6D59e9f8BEe9919dba3261aE9FaEDFDD6A6764a";
 
 function ViewTicket() {
   let rentContract;
   const [id, setId] = useState('');
-  const[isConnected, setIsConnected] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [ticketData, setTicketData] = useState(null);
   
   //utilizamos esto para verificar la coneccion con metamastk
   useEffect(() => {
@@ -32,14 +32,14 @@ function ViewTicket() {
       await window.ethereum.request({ method: 'eth_requestAccounts' });
       if (window.ethereum.selectedAddress) {
         setIsConnected(true);
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        initContract(signer);
+        initContract();
       }
     }
   };
 
-  const initContract = async (signer) => {
+  const initContract = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
     rentContract = new ethers.Contract(rentAddress, rentAbi, signer);
   }
 
@@ -47,9 +47,19 @@ function ViewTicket() {
     setId(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    initContract();
     event.preventDefault();
-    //enviarTicket(id, uri); llamar al contrato
+    const result = await rentContract.ticketdata(id);
+    const ticketDataObject = {
+      from: result.from,
+      startTicketDate: result.startTicketDate,
+      ticketUri: result.tikectUri,
+      lastResult: result.lastResult,
+      lastAmountResult: result.lastAmountResult
+    };
+    setTicketData(ticketDataObject);
+    console.log(result);
   };
 
   return (
@@ -65,6 +75,15 @@ function ViewTicket() {
         </form>
       ): (
         <div>Por favor, conecta Metamask para continuar.</div>
+      )}
+      {ticketData && (
+        <div>
+          <p>From: {ticketData.from}</p>
+          <p>StartTicketDate: {ticketData.startTicketDate}</p>
+          <p>TicketUri: {ticketData.ticketUri}</p>
+          <p>LastResult: {ticketData.lastResult}</p>
+          <p>LastAmountResult: {ticketData.lastAmountResult}</p>
+        </div>
       )}
       </div>
     </div>  
