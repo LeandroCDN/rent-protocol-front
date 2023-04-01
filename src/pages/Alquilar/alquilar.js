@@ -1,21 +1,64 @@
 import React, { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
+import rentAbi from "../../Contracts/rentABI.json";
+import { id } from 'ethers/lib/utils';
+
+const rentAddress = "0xD6D59e9f8BEe9919dba3261aE9FaEDFDD6A6764a";
 
 function Alquilar() {
   const [propertyId, setPropertyId] = useState('');
   const [propertyDetails, setPropertyDetails] = useState(null);
   const [showAlquilarButton, setShowAlquilarButton] = useState(false);
-
+  const [cantOfMonth, setCantOfMonth] = useState('');
+  const [rentContract, setRentContract] = useState('');
+  const [isMetamaskConnected, setIsMetamaskConnected] = useState('');
+  
+  const createSigner = async () => {
+    if (window.ethereum ) {
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+        if (window.ethereum.selectedAddress) {
+          setIsMetamaskConnected(true);
+          initContract();
+        }
+      }
+  };
+  
   useEffect(() => {
-    const showAlquilarButtonFromStorage = localStorage.getItem('showAlquilarButton');
-    setShowAlquilarButton(showAlquilarButtonFromStorage === 'true');
+    createSigner();
+    //si tiene wallet
+      if (window.ethereum ) {
+      //registra constantemente cambios en el objeto 'cuenta'
+        window.ethereum.on('accountsChanged', (accounts) => {
+          if (accounts.length > 0) {
+            setIsMetamaskConnected(true);
+              } else {
+            setIsMetamaskConnected(false);
+        }
+      });
+    }
   }, []);
+
+  const initContract = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const rentContract = new ethers.Contract(rentAddress, rentAbi, signer);
+    setRentContract(rentContract)
+  }
+
 
   const handlePropertyIdChange = (event) => {
     setPropertyId(event.target.value);
   }
 
-  const handleVerClick = () => {
-   
+  const handleCantOfMonthChange = (event) => {
+    setCantOfMonth(event.target.value);
+  }
+
+  const handleVerClick = async () => {
+    initContract();
+    const result = await rentContract.viewData(propertyId);
+    console.log(result);
+
     setPropertyDetails({
       propietario: 'Lorem ipsum',
       reserva: 'Lorem ipsum',
@@ -34,21 +77,23 @@ function Alquilar() {
   return (
     <div>
       <h1>Bienvenido a la página de Alquilar</h1>
-      <label htmlFor="property-id-input">Ingrese el ID de la propiedad:</label>
-      <input type="text" id="property-id-input" value={propertyId} onChange={handlePropertyIdChange} />
+      <label htmlFor="id">Ingrese el ID de la propiedad:</label>
+      <input type="text" id="id" value={propertyId} onChange={handlePropertyIdChange} />
       <br />
       <button onClick={handleVerClick}>Ver</button>
       <br />
       {propertyDetails && (
         <div>
+          <label htmlFor="id">Ingrese cantidad de meses:</label>
+          <input type="text" id="id" value={cantOfMonth} onChange={handleCantOfMonthChange} />
           <p>Propietario: {propertyDetails.propietario}</p>
           <p>Reserva: {propertyDetails.reserva}</p>
           <p>Precio: {propertyDetails.precio}</p>
           <p>Plazo mínimo de alquiler: {propertyDetails.plazoMinimoDeAlquiler}</p>
           <p>Adelanto: {propertyDetails.adelanto}</p>
+          {showAlquilarButton && <button onClick={handleAlquilarClick}>Alquilar</button>}
         </div>
       )}
-      {showAlquilarButton && <button onClick={handleAlquilarClick}>Alquilar</button>}
     </div>
   );
 }

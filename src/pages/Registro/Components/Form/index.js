@@ -37,14 +37,14 @@ function Form() {
   const createSigner = async () => {
     if (window.ethereum ) {
       await window.ethereum.request({ method: 'eth_requestAccounts' });
-          if (window.ethereum.selectedAddress) {
-            setIsMetamaskConnected(true);
-          // const provider = new ethers.providers.Web3Provider(window.ethereum);
-          // const signer = provider.getSigner();
-            initContract();
-          }
+        if (window.ethereum.selectedAddress) {
+          setIsMetamaskConnected(true);
+        // const provider = new ethers.providers.Web3Provider(window.ethereum);
+        // const signer = provider.getSigner();
+          initContract();
         }
-      };
+      }
+  };
 
   const initContract = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
