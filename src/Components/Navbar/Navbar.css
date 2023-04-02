@@ -5,7 +5,8 @@
   flex-direction: row;
   height: 50px;
   border-radius: 13px;
-  background-image: linear-gradient(to top, #2727276d, #000000eb);
+  /* background-image: linear-gradient(to top, #191A2C, #191A2C); */
+  background-color: #191A2C;
   color: #ffffff;
   padding: 0 20px;
   margin-top: 3px;

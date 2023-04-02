@@ -4,9 +4,9 @@ import './Home.css';
 
 function Home() {
     return (
-        <div className='back'>
-        <img className='imagen-titulo' src={titulo} alt='titulo'/>
-        <img className='imagen-casa' src={casa} alt='casa'/>
+        <div className='homediv'>
+        <   img className='imagen-titulo' src={titulo} alt='titulo'/>
+        <   img className='imagen-casa' src={casa} alt='casa'/>
         </div>
     );
 }

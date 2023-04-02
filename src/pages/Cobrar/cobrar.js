@@ -54,14 +54,13 @@ function Cobrar() {
     event.preventDefault();
     const seeAmount = await rentContract.calculatePayment(id);
     console.log(seeAmount);
-    setWithdrawAmount(
-      ethers.utils.formatEther(seeAmount).toString());
+    setWithdrawAmount(parseFloat(ethers.utils.formatEther(seeAmount).toString()).toFixed(2));
     const dataProperty = await rentContract.registerPropertyData(id);
     console.log(dataProperty);
     const dataPropertyObject = {
       renter: (dataProperty.renter).toString(),
-      status: dataProperty.state
-      // price: (dataProperty.pricePerSecond).toString()
+      status: dataProperty.state == 0 ? 'Free' : dataProperty.state == 1 ? "Rented" : "Stopped",
+      price: parseFloat(((ethers.utils.formatEther(dataProperty.pricePerSecond)* (86400*30))).toString()).toFixed(2)
     }
     setProperty(dataPropertyObject);
   }
@@ -80,21 +79,21 @@ function Cobrar() {
         <button className='boton' onClick={getDataBlockchain} disabled= {!id} >Buscar</button>
         <img className='div-imagen marge' src={ ima }  alt='casita'/>   
       </div>
-      {withdrawAmount ? (
         <form className='formu'>
-            <div className='formu-div'> 
-              <p>Monto a retirar: <strong>{withdrawAmount}</strong></p>
-              <p>Renter: <strong>{property.renter}</strong></p>
-              <p>Estado: <strong>{property.status}</strong></p>
-              <p>Precio por mes: <strong></strong></p>
-              <button className='boton' onClick={claimPayment} >Retirar importe</button>
-            </div>
-        </form>
-      ) : (
-        <div>
+          <div className='form-div'> 
 
-        </div>
-      )}
+            <p>Monto a retirar: </p>
+            <div className='textBox'><strong>{withdrawAmount}</strong></div>              
+            <p>Renter: </p>
+            <div className='textBox'><strong>{property.renter}</strong></div>
+            <p>Estado: </p>
+            <div className='textBox'><strong>{property.status}</strong></div>
+            <p>Precio por mes: </p>
+            <div className='textBox'><strong>{property.price}</strong></div>
+            <button className='boton' onClick={claimPayment} >Retirar importe</button>
+
+          </div>
+        </form>
     </div>
   );
 }

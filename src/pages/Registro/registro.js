@@ -1,4 +1,5 @@
 import Form from "./Components/Form";
+import img from "./Rectangle108.png";
 import "./registro.css";
 
 function Registro() {
@@ -6,8 +7,10 @@ function Registro() {
   return (
       <div className="registro">
         <h1>Bienvenido a la página de Registro</h1>
-        <p>Este es un sitio web de ejemplo creado con React</p>
-        <Form/> 
+        <div className="divRegisterElements">
+          <img className='div-imagen marge' src={ img }  alt='casita'/>   
+          <Form className='formRegistro'/> 
+        </div>
       </div>
     );
   }
