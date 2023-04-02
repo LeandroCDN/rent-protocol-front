@@ -7,7 +7,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className="social-links">
-        <a href="/"  rel="noopener noreferrer"> DevFuri </a>
+        <a href="/"  rel="noopener noreferrer"> DevFury </a>
         {/* <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a> */}
