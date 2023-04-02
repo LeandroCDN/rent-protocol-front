@@ -26,7 +26,11 @@
   font-size: 17px;
   text-align: center;
   border: none;
-  /* transition: all 0.7s; */
+  transition: all 0.2s ease-in-out;
+}
+
+.boton:active {
+  transform: translateY(2px); 
 }
 
 .entrada {

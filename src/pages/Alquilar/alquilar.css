@@ -3,9 +3,20 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background-color: aliceblue; */
-
+  background-color: #f1f1f7;
+  color: #000;
   
+}
+
+.form {
+  text-align: center;
+}
+
+.entradaAlquilar, .ver-btn, .approve-btn {
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25), 0 8px 8px rgba(0, 0, 0, 0.25), 0 16px 16px rgba(0, 0, 0, 0.25);
 }
 
 .entradaAlquilar {
@@ -18,4 +29,36 @@
   font-size: 18px;
   border-radius: 20px;
   border: none;
+}
+
+.ver-btn {
+  background-color: #153D89;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  border-radius: 40px;
+  font-weight: 600;
+  margin: 15px;
+  font-size: 17px;
+  text-align: center;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.ver-btn:active {
+  transform: translateY(2px); 
+}
+
+.approve-btn {
+  background-color: #153D89;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  border-radius: 40px;
+  font-weight: 600;
+  margin: 15px;
+  font-size: 17px;
+  text-align: center;
+  border: none;
+  transition: all 0.2s ease-in-out;
 }

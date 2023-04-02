@@ -97,23 +97,24 @@ function Alquilar() {
   return (
     <div className='alquilar'>
       <h1>Bienvenido a la página de Alquilar</h1>
+      
       <label htmlFor="id" >Ingrese el ID de la propiedad:</label>
       <input type="text" className="entradaAlquilar" id="id" value={propertyId} onChange={handlePropertyIdChange} placeholder='ID Propiedad (usar 0)'/>
       <br />
-      <button onClick={handleVerClick}>Ver</button>
+      <button className='ver-btn' onClick={handleVerClick}>Ver</button>
       <br />
       {propertyDetails && (
-        <div>
-          <label htmlFor="cantOfMonth">Ingrese cantidad de meses:</label>
+        <div className='form'>
+          <label htmlFor="cantOfMonth">Ingrese cantidad de meses:  </label>
           <input type="text" id="cantOfMonth" value={cantOfMonth} onChange={handleCantOfMonthChange} />
-          <p>Propietario: {propertyDetails.propietario}</p>
-          <p>Stado: {propertyDetails.state}</p>
-          <p>Reserva: {propertyDetails.reserva}</p>
-          <p>Precio: {propertyDetails.precio}</p>
-          <p>Plazo mínimo de alquiler: {propertyDetails.plazoMinimoDeAlquiler}</p>
-          <p>Adelanto: {propertyDetails.adelanto} meses</p>
-          <p>Tiempo maximo de renta: {propertyDetails.tiempoMaximo}</p>
-          {showAlquilarButton && <button onClick={handleAlquilarClick}>{alquilar}</button>}
+          <p>Propietario: <strong>{propertyDetails.propietario}</strong></p>
+          <p>Stado: <strong>{propertyDetails.state}</strong></p>
+          <p>Reserva: <strong>{propertyDetails.reserva}</strong></p>
+          <p>Precio: <strong>{propertyDetails.precio}</strong></p>
+          <p>Plazo mínimo de alquiler: <strong>{propertyDetails.plazoMinimoDeAlquiler}</strong></p>
+          <p>Adelanto: <strong>{propertyDetails.adelanto}</strong> meses</p>
+          <p>Tiempo maximo de renta: <strong>{propertyDetails.tiempoMaximo}</strong></p>
+          {showAlquilarButton && <button className='approve-btn' onClick={handleAlquilarClick}>{alquilar}</button>}
         </div>
       )}
     </div>
