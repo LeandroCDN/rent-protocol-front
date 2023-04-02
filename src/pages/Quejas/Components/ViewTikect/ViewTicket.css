@@ -4,11 +4,10 @@
   flex-direction: column;
   border: 2px solid #5673A9;
   border-radius: 40px;
-  height: 50vh;
+  min-height: 50vh;
   margin: 2px;
   padding: 2px;
-  background-color: #191A2C;
-  color: #fff;
+  background-image: linear-gradient(to bottom,#191A2C,#191a2ce8);  color: #fff;
   margin: 6px;
   padding: 2px;
 }
@@ -19,12 +18,14 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  padding: 15px;
 }
 
 .form-ViewTicket{
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .input-label-ViewTicket {
@@ -36,10 +37,12 @@
   padding: 5px;
   border: 1px solid gray;
   border-radius: 3px;
-  width: 90%;
-  background-color: #D083DD80;
   text-align: center;
-  color: #fff;
+  color: black;
+  padding: 6px;
+  border-radius: 15px;
+  width: 80%;
+  height: 30px;
 }
 
 .submit-button-ViewTicket {

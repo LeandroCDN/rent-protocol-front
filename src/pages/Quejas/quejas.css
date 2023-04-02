@@ -3,8 +3,10 @@
   align-items: center;
   flex-direction: column;
   height: 85vh;
-  /* background-color: #191A2C; */
-  background-image: linear-gradient(to top, #00000086, #191A2C);
+  background-color: #f1f1f7;
+  border-radius: 20px;
+  margin: 5px;
+  color: black;
 }
 
 .quejasforms{
