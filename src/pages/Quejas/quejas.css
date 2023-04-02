@@ -2,10 +2,24 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #191A2C;
+  color: #fff;
 }
 
 .quejasforms{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.logo-quejas {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  max-width: 100%;
+  height: 158px;
+}
+
+.container-logo {
+  
 }
