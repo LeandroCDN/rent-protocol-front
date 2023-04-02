@@ -30,7 +30,7 @@
 .navbar-link.active {
   /* background-color: #ffffffcd; */
   border-radius: 40%;
-  color: #000000;
+  color: #1DA1F2;
   transition: color 0.7s ease-in-out;
 }
 
