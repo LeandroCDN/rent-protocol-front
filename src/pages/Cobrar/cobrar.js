@@ -76,7 +76,7 @@ function Cobrar() {
   return (
     <div className='back'>
       <div className='divddiv'>
-        <input type='input' className='entrada' value={id} onChange={(event) => setId(event.target.value)} placeholder='ID Propiedad' />
+        <input type='input' className='entrada' value={id} onChange={(event) => setId(event.target.value)} placeholder='ID Propiedad (usar 0)' />
         <button className='boton' onClick={getDataBlockchain} disabled= {!id} >Buscar</button>
         <img className='div-imagen marge' src={ ima }  alt='casita'/>   
       </div>

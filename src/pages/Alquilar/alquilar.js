@@ -97,8 +97,8 @@ function Alquilar() {
   return (
     <div className='alquilar'>
       <h1>Bienvenido a la página de Alquilar</h1>
-      <label htmlFor="id">Ingrese el ID de la propiedad:</label>
-      <input type="text" id="id" value={propertyId} onChange={handlePropertyIdChange} />
+      <label htmlFor="id" >Ingrese el ID de la propiedad:</label>
+      <input type="text" className="entradaAlquilar" id="id" value={propertyId} onChange={handlePropertyIdChange} placeholder='ID Propiedad (usar 0)'/>
       <br />
       <button onClick={handleVerClick}>Ver</button>
       <br />
