@@ -83,10 +83,10 @@ function Cobrar() {
       {withdrawAmount ? (
         <form className='formu'>
             <div className='formu-div'> 
-              <p>Monto a retirar: {withdrawAmount}</p>
-              <p>Renter: {property.renter}</p>
-              <p>Estado: {property.status}</p>
-              <p>Precio por mes: </p>
+              <p>Monto a retirar: <strong>{withdrawAmount}</strong></p>
+              <p>Renter: <strong>{property.renter}</strong></p>
+              <p>Estado: <strong>{property.status}</strong></p>
+              <p>Precio por mes: <strong></strong></p>
               <button className='boton' onClick={claimPayment} >Retirar importe</button>
             </div>
         </form>

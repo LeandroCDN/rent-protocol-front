@@ -2,10 +2,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 2px solid black;
+  border: 2px solid #5673A9;
+  border-radius: 40px;
   height: 50vh;
   margin: 2px;
   padding: 2px;
+  background-color: #191A2C;
+  color: #fff;
 }
 
 
@@ -29,12 +32,17 @@
   border: 1px solid gray;
   border-radius: 3px;
   width: 90%;
+  background-color: #D083DD80;
+  text-align: center;
+  color: #fff;
 }
 
 .submit-button-ResolveTicket {
   margin-top: 20px;
   padding: 10px;
-  background-color: rgb(255, 0, 0);
+  background-color: #153D89;
+  border-radius: 40px;
+  font-size: 17px;
   color: white;
   border: none;
   border-radius: 3px;
