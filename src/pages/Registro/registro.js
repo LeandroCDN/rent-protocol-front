@@ -8,7 +8,7 @@ function Registro() {
       <div className="registro">
         <h1>Bienvenido a la página de Registro</h1>
         <div className="divRegisterElements">
-          <img className='div-imagen marge' src={ img }  alt='casita'/>   
+          <img className='divImagen-registro' src={ img }  alt='casita'/>   
           <Form className='formRegistro'/> 
         </div>
       </div>

@@ -4,12 +4,20 @@
   align-items: center;
   flex-direction: column;
   background-color: #f1f1f7;
+  border-radius: 20px;
   color: black;
 }
+
+
 
 .divRegisterElements{
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row; 
+  width: 100%;;
+  justify-content: space-evenly;
+}
 
+.divImagen-registro {
+  height: 80%; 
 }

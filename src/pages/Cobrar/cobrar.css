@@ -26,8 +26,10 @@
   font-size: 17px;
   text-align: center;
   border: none;
+    
   /* transition: all 0.7s; */
 }
+
 
 .entrada {
   color: #fff;
