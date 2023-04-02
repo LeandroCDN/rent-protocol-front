@@ -1,6 +1,40 @@
+.DivFormRegistro{
+  background-image: linear-gradient(to bottom,#191A2C,#191a2ce8);
+  color: #fff;
+  padding: 50px;
+  border-radius: 30px;
+  min-width: 20vw;
+}
+
 .formRegistro{
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin:10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.registroInputs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: White;
+  color: black;
+  padding: 6px;
+  border-radius: 15px;
+  width: 100%; 
+  height: 18px;
+}
+.buttonRegister{
+  background-color: #0f1114;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  border-radius: 40px;
+  font-weight: 600;
+  margin: 20px;
+  font-size: 17px;
+  text-align: center;
+  border: none;
 }

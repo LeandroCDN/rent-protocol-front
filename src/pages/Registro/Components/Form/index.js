@@ -97,34 +97,30 @@ function Form() {
   }         
           
     return (
-        <div>
+        <div className='DivFormRegistro'>
           {isMetamaskConnected ? (
             <form className='formRegistro'>
               <div className='formRegistro'>
                 <label htmlFor="Reserve">Reserva:</label>
-                <input type="text" id="Reserve" name="Reserve" value={Reserve} onChange={handleReserveChange} />
+                <input className='registroInputs' type="text" id="Reserve" name="Reserve" value={Reserve} onChange={handleReserveChange} />
               </div>
               <div className='formRegistro'>
                 <label htmlFor="PrecioPorMes">Precio por mes de la propiedad:</label>
-                <input type="text" id="PrecioPorMes" name="PrecioPorMes" value={PrecioPorMes} onChange={handlePrecioPorMesChange}/>
-              </div>
-    
+                <input className='registroInputs' type="text" id="PrecioPorMes" name="PrecioPorMes" value={PrecioPorMes} onChange={handlePrecioPorMesChange}/>
+              </div>    
               <div className='formRegistro'>
                 <label htmlFor="MinTimeToRent">Cantidad minima de meses:</label>
-                <input type="text" id="MinTimeToRent" name="MinTimeToRent" value={MinTimeToRent} onChange={handleMinTimeToRentChange} />
-              </div>
-    
+                <input className='registroInputs' type="text" id="MinTimeToRent" name="MinTimeToRent" value={MinTimeToRent} onChange={handleMinTimeToRentChange} />
+              </div>    
               <div className='formRegistro'>
                 <label htmlFor="Advacement">Adelanto minimo:</label>
-                <input type="text" id="Advacement" name="Advacement" value={Advacement} onChange={handleAdvacementChange} />
-              </div>
-    
+                <input className='registroInputs' type="text" id="Advacement" name="Advacement" value={Advacement} onChange={handleAdvacementChange} />
+              </div>    
               <div className='formRegistro'>
                 <label htmlFor="MaxTimeToRent">Cantidad maxima de meses:</label>
-                <input type="text" id="MaxTimeToRent" name="MaxTimeToRent" value={MaxTimeToRent} onChange={handleMaxTimeToRentChange} />
-              </div>
-    
-              <button type="button" onClick={register}>
+                <input className='registroInputs' type="text" id="MaxTimeToRent" name="MaxTimeToRent" value={MaxTimeToRent} onChange={handleMaxTimeToRentChange} />
+              </div>    
+              <button className="buttonRegister" type="button" onClick={register}>
                 Registrar
               </button>
             </form>
