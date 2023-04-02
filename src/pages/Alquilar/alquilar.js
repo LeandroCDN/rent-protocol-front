@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import rentAbi from "../../Contracts/rentABI.json";
 import ercAbi from "../../Contracts/rentABI.json";
-import { id } from 'ethers/lib/utils';
+import "./alquilar.css";
 
 
 const rentAddress = "0xD6D59e9f8BEe9919dba3261aE9FaEDFDD6A6764a";
@@ -95,7 +95,7 @@ function Alquilar() {
   }
 
   return (
-    <div>
+    <div className='alquilar'>
       <h1>Bienvenido a la página de Alquilar</h1>
       <label htmlFor="id">Ingrese el ID de la propiedad:</label>
       <input type="text" id="id" value={propertyId} onChange={handlePropertyIdChange} />

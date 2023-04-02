@@ -99,27 +99,27 @@ function Form() {
     return (
         <div>
           {isMetamaskConnected ? (
-            <form>
-              <div>
+            <form className='formRegistro'>
+              <div className='formRegistro'>
                 <label htmlFor="Reserve">Reserva:</label>
                 <input type="text" id="Reserve" name="Reserve" value={Reserve} onChange={handleReserveChange} />
               </div>
-              <div>
+              <div className='formRegistro'>
                 <label htmlFor="PrecioPorMes">Precio por mes de la propiedad:</label>
                 <input type="text" id="PrecioPorMes" name="PrecioPorMes" value={PrecioPorMes} onChange={handlePrecioPorMesChange}/>
               </div>
     
-              <div>
+              <div className='formRegistro'>
                 <label htmlFor="MinTimeToRent">Cantidad minima de meses:</label>
                 <input type="text" id="MinTimeToRent" name="MinTimeToRent" value={MinTimeToRent} onChange={handleMinTimeToRentChange} />
               </div>
     
-              <div>
+              <div className='formRegistro'>
                 <label htmlFor="Advacement">Adelanto minimo:</label>
                 <input type="text" id="Advacement" name="Advacement" value={Advacement} onChange={handleAdvacementChange} />
               </div>
     
-              <div>
+              <div className='formRegistro'>
                 <label htmlFor="MaxTimeToRent">Cantidad maxima de meses:</label>
                 <input type="text" id="MaxTimeToRent" name="MaxTimeToRent" value={MaxTimeToRent} onChange={handleMaxTimeToRentChange} />
               </div>

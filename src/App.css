@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: linear-gradient(to top, #f3d5b54a, #f3d5b5eb);
+  background-color: #222222;
+  color: #ffffff;
 }
 
 main {

@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #191A2C;
-  color: #fff;
+  height: 85vh;
+  /* background-color: #191A2C; */
+  background-image: linear-gradient(to top, #00000086, #191A2C);
 }
 
 .quejasforms{
@@ -12,14 +13,19 @@
   justify-content: space-between;
 }
 
-.logo-quejas {
+.box {
+  padding: 5px;
+  margin: 5px;
+}
+
+/* .logo-quejas {
   position: absolute;
   top: 120px;
   left: 20px;
   max-width: 100%;
   height: 158px;
-}
+} */
 
-.container-logo {
+/* .container-logo {
   
-}
+} */

@@ -7,15 +7,15 @@ function Footer() {
   return (
     <div className="footer">
       <div className="social-links">
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+        <a href="/"  rel="noopener noreferrer"> DevFuri </a>
+        {/* <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a> */}
       </div>
       <div className="useful-links">
-        <a href="https://www.example.com/documentation" target="_blank" rel="noopener noreferrer">Documentation</a>
-        <a href="https://www.example.com/contact" target="_blank" rel="noopener noreferrer">Contact</a>
-        <a href="https://www.example.com/about" target="_blank" rel="noopener noreferrer">About</a>
+        <a href="https://duckdev.notion.site/Solidity-Documentaci-n-924df1f1536d49028a075e487ebe496b" target="_blank" rel="noopener noreferrer">Documentation</a>
+        <a href="https://duckdev.notion.site/King-of-dev-2-0-Team-DevFury-a79221d7f1bc47d0a4c1bae651c57014" target="_blank" rel="noopener noreferrer">Team Members</a>
+        <a href="https://duckdev.notion.site/Project-track-Hackaton-workshit-072ffce2ef1d4b3ea20a22f3952fdffb" target="_blank" rel="noopener noreferrer">Project Info</a>
       </div>
     </div>
   );

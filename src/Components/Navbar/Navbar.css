@@ -1,17 +1,17 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    height: 50px;
-    border-radius: 13px;
-    background-image: linear-gradient(to top, #f3d5b56d, #f3d5b5eb);
-    color: #ffffff;
-    padding: 0 20px;
-    margin-top: 3px;
-    margin-bottom: 10px;
-    margin-left: 3px;
-    margin-right: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 50px;
+  border-radius: 13px;
+  background-image: linear-gradient(to top, #2727276d, #000000eb);
+  color: #ffffff;
+  padding: 0 20px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .navbar-links{
