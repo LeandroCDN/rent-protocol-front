@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import rentAbi from "../../Contracts/rentABI.json";
+import ercAbi from "../../Contracts/rentABI.json";
 import { id } from 'ethers/lib/utils';
 
+
 const rentAddress = "0xD6D59e9f8BEe9919dba3261aE9FaEDFDD6A6764a";
+const ierc20Address = "0x1e688D81DaA26FffCA805A4De3c6Bb9D6F7D9373";
 
 function Alquilar() {
   const [propertyId, setPropertyId] = useState('');
+  const [alquilar, setAlquilar] = useState('approve');
   const [propertyDetails, setPropertyDetails] = useState(null);
   const [showAlquilarButton, setShowAlquilarButton] = useState(false);
   const [cantOfMonth, setCantOfMonth] = useState('');
   const [rentContract, setRentContract] = useState('');
-  const [isMetamaskConnected, setIsMetamaskConnected] = useState('');
+  const [ercContract, setErcContract] = useState('');
+  const [IsMetamaskConnected, setIsMetamaskConnected] = useState('');
+
   
   const createSigner = async () => {
     if (window.ethereum ) {
@@ -42,7 +48,9 @@ function Alquilar() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const rentContract = new ethers.Contract(rentAddress, rentAbi, signer);
-    setRentContract(rentContract)
+    const ercContract = new ethers.Contract(ierc20Address, ercAbi, signer);
+    setRentContract(rentContract);
+    setErcContract(ercContract);
   }
 
 
@@ -56,22 +64,34 @@ function Alquilar() {
 
   const handleVerClick = async () => {
     initContract();
-    const result = await rentContract.viewData(propertyId);
+    const result = await rentContract.registerPropertyData(propertyId);
+    const owner = await rentContract.ownerOf(propertyId);
     console.log(result);
 
     setPropertyDetails({
-      propietario: 'Lorem ipsum',
-      reserva: 'Lorem ipsum',
-      precio: 'Lorem ipsum',
-      plazoMinimoDeAlquiler: 'Lorem ipsum',
-      adelanto: 'Lorem ipsum'
+      propietario: owner,
+      state: result.state,
+      reserva: ethers.utils.formatEther(result.reserve).toString(),
+      precio: ethers.utils.formatEther(result.price).toString(),
+      plazoMinimoDeAlquiler: result.minTimeToRent   ,
+      adelanto: result.advancement,
+      tiempoMaximo: result.maxTimeToRent
     });
     setShowAlquilarButton(true);
     localStorage.setItem('showAlquilarButton', true);
   }
+  
 
-  const handleAlquilarClick = () => {
-    
+
+  const handleAlquilarClick = async () => {
+    initContract();
+    const tx = await ercContract.approve(rentAddress,"200", {gasLimit:300000});
+    setAlquilar('Approving...');
+    await tx.wait().then(async () => {
+      const result = await rentContract.newRent(propertyId, cantOfMonth);
+      setAlquilar('Renting...');
+    })
+    // console.log(result.toString())
   }
 
   return (
@@ -84,14 +104,16 @@ function Alquilar() {
       <br />
       {propertyDetails && (
         <div>
-          <label htmlFor="id">Ingrese cantidad de meses:</label>
-          <input type="text" id="id" value={cantOfMonth} onChange={handleCantOfMonthChange} />
+          <label htmlFor="cantOfMonth">Ingrese cantidad de meses:</label>
+          <input type="text" id="cantOfMonth" value={cantOfMonth} onChange={handleCantOfMonthChange} />
           <p>Propietario: {propertyDetails.propietario}</p>
+          <p>Stado: {propertyDetails.state}</p>
           <p>Reserva: {propertyDetails.reserva}</p>
           <p>Precio: {propertyDetails.precio}</p>
           <p>Plazo mínimo de alquiler: {propertyDetails.plazoMinimoDeAlquiler}</p>
-          <p>Adelanto: {propertyDetails.adelanto}</p>
-          {showAlquilarButton && <button onClick={handleAlquilarClick}>Alquilar</button>}
+          <p>Adelanto: {propertyDetails.adelanto} meses</p>
+          <p>Tiempo maximo de renta: {propertyDetails.tiempoMaximo}</p>
+          {showAlquilarButton && <button onClick={handleAlquilarClick}>{alquilar}</button>}
         </div>
       )}
     </div>
