@@ -120,7 +120,7 @@ function Form() {
                 <label htmlFor="MaxTimeToRent">Cantidad maxima de meses:</label>
                 <input className='registroInputs' type="text" id="MaxTimeToRent" name="MaxTimeToRent" value={MaxTimeToRent} onChange={handleMaxTimeToRentChange} />
               </div>    
-              <button classNgiame="buttonRegister" type="button" onClick={register}>
+              <button className="buttonRegister" type="button" onClick={register}>
                 Registrar
               </button>
             </form>
