@@ -1,8 +1,12 @@
+import titulo from './images/title.png';
+import casa from './images/Ellipse1.png';
+import './Home.css';
+
 function Home() {
     return (
-        <div>
-        <h1>Bienvenido a la página de Home</h1>
-        <p>Este es un sitio web de ejemplo creado con React</p>
+        <div className='back'>
+        <img className='imagen-titulo' src={titulo} alt='titulo'/>
+        <img className='imagen-casa' src={casa} alt='casa'/>
         </div>
     );
 }
